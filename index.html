@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crezenso IT Solutions</title>
+    <link rel="icon" type="image/png" href="crezenso-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --purple-400: #a855f7;
+            --purple-500: #9333ea;
+            --purple-600: #7c3aed;
+            --purple-900: #581c87;
+            --pink-400: #ec4899;
+            --pink-600: #db2777;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, var(--slate-900), var(--purple-900), var(--slate-900));
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+         height: 45px;
+         width: auto;
+         margin-right: 10px;
+        }
+
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--purple-400), var(--pink-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            text-transform: capitalize;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--purple-400);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            background: var(--slate-800);
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .mobile-menu-content {
+            padding: 0.5rem 0.75rem 1rem;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            text-transform: capitalize;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 0.25rem;
+            transition: background 0.3s;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(168, 85, 247, 0.5);
+        }
+
+        /* Sections */
+        section {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(to right, var(--purple-400), var(--pink-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        /* Home Section */
+        .home-content {
+            text-align: center;
+        }
+
+        .home-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--purple-400), var(--pink-400), var(--purple-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        @media (min-width: 768px) {
+            .home-title {
+                font-size: 5rem;
+            }
+        }
+
+        .home-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .home-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .home-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, var(--purple-600), var(--pink-600));
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 15px rgba(168, 85, 247, 0.5);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            border: 2px solid var(--purple-400);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: white;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .about-text {
+            font-size: 1.125rem;
+            color: var(--gray-300);
+            line-height: 1.75;
+        }
+
+        .about-text span {
+            color: var(--purple-400);
+            font-weight: 600;
+        }
+
+        .about-text .highlight {
+            color: var(--pink-400);
+            font-weight: 600;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:nth-child(odd) {
+            background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+        }
+
+        .feature-card:nth-child(even) {
+            background: linear-gradient(to bottom right, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card:nth-child(odd) .feature-title {
+            color: var(--purple-400);
+        }
+
+        .feature-card:nth-child(even) .feature-title {
+            color: var(--pink-400);
+        }
+
+        .feature-description {
+            color: var(--gray-300);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+            background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--purple-400);
+            box-shadow: 0 20px 25px rgba(168, 85, 247, 0.2);
+            transform: translateY(-0.5rem);
+        }
+
+        .service-icon {
+            color: var(--purple-400);
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .service-description {
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        /* Careers Section */
+        .careers-content {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        .careers-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .careers-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .careers-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .job-card {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+            background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+            transition: all 0.3s;
+        }
+
+        .job-card:hover {
+            border-color: var(--purple-400);
+            box-shadow: 0 10px 15px rgba(168, 85, 247, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-details {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+
+        .job-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .job-apply-btn {
+            padding: 0.5rem;
+            background: var(--purple-600);
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .job-apply-btn:hover {
+            background: var(--purple-500);
+        }
+
+        .careers-footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .careers-footer p {
+            color: var(--gray-300);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            padding: 0.75rem;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 0.5rem;
+        }
+
+        .contact-icon i {
+            color: var(--purple-400);
+            font-size: 1.5rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: var(--gray-300);
+        }
+
+        .contact-form {
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+            background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 0.5rem;
+            color: white;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--purple-400);
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        textarea.form-input {
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-900);
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--gray-400);
+        }
+
+        .footer-tagline {
+            color: var(--purple-400);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="crezenso-logo.png" alt="Crezenso IT Solutions Logo">
+                    <span class="logo-text">Crezenso IT Solutions</span>
+                </div>
+                
+                <div class="nav-links">
+                    <button class="nav-link active" data-section="home">Home</button>
+                    <button class="nav-link" data-section="about">About</button>
+                    <button class="nav-link" data-section="services">Services</button>
+                    <button class="nav-link" data-section="careers">Careers</button>
+                    <button class="nav-link" data-section="contact">Contact</button>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu hidden" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <button class="mobile-nav-link" data-section="home">Home</button>
+                <button class="mobile-nav-link" data-section="about">About</button>
+                <button class="mobile-nav-link" data-section="services">Services</button>
+                <button class="mobile-nav-link" data-section="careers">Careers</button>
+                <button class="mobile-nav-link" data-section="contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="section-container">
+            <div class="home-content">
+                <h1 class="home-title">Where Creativity Meets Technology</h1>
+                <p class="home-subtitle">
+                    Transforming ideas into impactful technology solutions that empower businesses to thrive in the digital age
+                </p>
+                <div class="home-buttons">
+                    <button class="btn-primary" data-section="services">Explore Services</button>
+                    <button class="btn-secondary" data-section="contact">Get in Touch</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section hidden">
+        <div class="section-container">
+            <h2 class="section-title">About Crezenso IT Solutions</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        At <span>Crezenso IT Solutions</span>, we combine creativity and technology to deliver innovative digital solutions that empower businesses to thrive in the modern world.
+                    </p>
+                    <p>
+                        From custom software development and web design to graphic design, POS systems, and IT consultancy, we provide end-to-end solutions tailored to your unique needs.
+                    </p>
+                    <p>
+                        Our mission is to <span class="highlight">transform ideas into impactful technology</span> while maintaining a focus on quality, efficiency, and client satisfaction.
+                    </p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <h3 class="feature-title">Innovation</h3>
+                        <p class="feature-description">Cutting-edge solutions for modern challenges</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Quality</h3>
+                        <p class="feature-description">Excellence in every project we deliver</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Creativity</h3>
+                        <p class="feature-description">Unique designs that stand out</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title">Support</h3>
+                        <p class="feature-description">Dedicated team always ready to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section hidden">
+        <div class="section-container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Web Design & Development</h3>
+                    <p class="service-description">
+                        Custom websites that blend stunning design with powerful functionality to create engaging digital experiences.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Software & Mobile Development</h3>
+                    <p class="service-description">
+                        Scalable software solutions and mobile apps built with cutting-edge technology to meet your business goals.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="service-title">Graphic Design & Branding</h3>
+                    <p class="service-description">
+                        Creative visual identity and branding solutions that make your business stand out in the market.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title">POS & Enterprise Solutions</h3>
+                    <p class="service-description">
+                        Robust point-of-sale and enterprise systems designed to streamline operations and boost efficiency.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">IT Consulting & Support</h3>
+                    <p class="service-description">
+                        Expert guidance and reliable support to help your business leverage technology effectively.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="section hidden">
+        <div class="section-container">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="careers-subtitle">
+                Be part of a dynamic team that is shaping the future of technology. We are always looking for talented individuals who share our passion for innovation.
+            </p>
+            <div class="careers-grid">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Full Stack Developer</h3>
+                            <div class="job-details">
+                                <div class="job-detail">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>On-site/Remote</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="job-apply-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">UI/UX Designer</h3>
+                            <div class="job-details">
+                                <div class="job-detail">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="job-apply-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Mobile App Developer</h3>
+                            <div class="job-details">
+                                <div class="job-detail">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Full-time</span>
+                                </div>
+                                <div class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Remote</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="job-apply-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Graphic Designer</h3>
+                            <div class="job-details">
+                                <div class="job-detail">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Part-time</span>
+                                </div>
+                                <div class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="job-apply-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="careers-footer">
+                <p>Do not see a position that fits? Send us your resume anyway!</p>
+                <button class="btn-primary">Submit Your CV</button>
+            </div>
+        </div>
+    </section>
+
+ <!-- Contact Section -->
+<section id="contact" class="section hidden">
+    <div class="section-container">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>info@crezenso.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+94 71 330 6829</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Ja-Ela, Western Province, Sri Lanka</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web3Forms Contact Form -->
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" name="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2025 Crezenso IT Solutions. All rights reserved.</p>
+            <p class="footer-tagline">Where Creativity Meets Technology</p>
+        </div>
+    </footer>
+
+    <script>
+        // State management
+        let activeSection = 'home';
+        const formData = {
+            name: '',
+            email: '',
+            message: ''
+        };
+
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        const sections = document.querySelectorAll('.section');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Update icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars';
+            } else {
+                icon.className = 'fas fa-times';
+            }
+        });
+
+        // Scroll to section function
+        function scrollToSection(section) {
+            // Update active section
+            activeSection = section;
+            
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show active section
+            document.getElementById(section).classList.remove('hidden');
+            
+            // Update active nav link
+            navLinks.forEach(link => {
+                if (link.dataset.section === section) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Close mobile menu
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+        }
+
+        // Add event listeners to navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                scrollToSection(link.dataset.section);
+            });
+        });
+
+        // Add event listeners to mobile navigation links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                scrollToSection(link.dataset.section);
+            });
+        });
+
+        // Add event listeners to buttons that scroll to sections
+        document.querySelectorAll('button[data-section]').forEach(button => {
+            if (!button.classList.contains('nav-link') && !button.classList.contains('mobile-nav-link')) {
+                button.addEventListener('click', () => {
+                    scrollToSection(button.dataset.section);
+                });
+            }
+        });
+
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            formData.append('access_key', 'cbeea4dc-4fe8-4497-8f5c-2a37622c4701'); // Replace with your API key
+            formData.append('subject', 'New message from Crezenso website');
+            formData.append('redirect', ''); // Optional: redirect URL after submission
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if(result.success){
+                    alert('Message sent successfully!');
+                    this.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error sending message. Please try again.');
+            }
+        });
+
+        // Job apply buttons
+        document.querySelectorAll('.job-apply-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const jobTitle = button.closest('.job-card').querySelector('.job-title').textContent;
+                alert(`Thank you for your interest in the ${jobTitle} position! Please send your CV to info@crezenso.com`);
+            });
+        });
+
+        // Submit CV button
+        document.querySelector('.careers-footer .btn-primary').addEventListener('click', () => {
+            alert('Please send your CV to info@crezenso.com');
+        });
+    </script>
+</body>
+</html>
